@@ -5,6 +5,7 @@ import 'package:zalan_portfolio/Widgets/Animation.dart';
 import 'package:zalan_portfolio/Widgets/Footer.dart';
 import 'package:zalan_portfolio/Widgets/Header.dart';
 import 'package:zalan_portfolio/Widgets/PersonalSection.dart';
+import 'package:zalan_portfolio/Widgets/Projects.dart';
 import 'package:zalan_portfolio/Widgets/Skills.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,7 +15,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0B0B0B),
-      body: SingleChildScrollView(
+      body: 
+      SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
@@ -40,6 +42,8 @@ class HomePage extends StatelessWidget {
             ),
             Gap(20),
             Skills(),
+            Gap(40),
+            Projects(),
             Gap(40),
             PersonalSection(),
             Gap(80),

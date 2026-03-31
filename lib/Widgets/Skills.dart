@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:zalan_portfolio/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
 
 class Skills extends StatelessWidget {
   const Skills({super.key});

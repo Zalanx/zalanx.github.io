@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:zalan_portfolio/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
 
 class PersonalSection extends StatelessWidget {
   const PersonalSection({super.key});
@@ -89,7 +89,7 @@ class PersonalBox extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFFFF7A00),
+                  color: Mycolors.primaryOrange,
                 ),
               ),
               const Gap(20),
@@ -100,7 +100,7 @@ class PersonalBox extends StatelessWidget {
                   child: Row(
                     children: [
                       const Icon(
-                        Icons.arrow_right,
+                        Icons.keyboard_arrow_right,
                         color: Colors.white70,
                       ),
                       const Gap(10),

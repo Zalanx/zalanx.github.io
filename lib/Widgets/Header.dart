@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zalan_portfolio/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -23,7 +23,7 @@ class Header extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                     TextSpan(
-                      text: 'Zalan.',
+                      text: 'Zalán.',
                       style: TextStyle(
                         color: Mycolors.primaryOrange, 
                       ),

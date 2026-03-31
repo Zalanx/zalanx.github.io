@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:zalan_portfolio/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
 
 class AnimationWidget extends StatelessWidget {
   const AnimationWidget({super.key});
@@ -40,6 +40,7 @@ class AnimationWidget extends StatelessWidget {
                         FadeAnimatedText('Frontend / App-Entwicklung'),
                         FadeAnimatedText('API Entwicklung'),
                         FadeAnimatedText('Sauberen Code'),
+                        FadeAnimatedText('Lernen & Wachstum'),
                       ],
                     ),
                   ),
