@@ -27,16 +27,9 @@ class CarStatusPage extends StatelessWidget {
       caption: "Anlegen eines neuen Tickets mit Aufgabenliste",
     ),
     ProjectScreenshot(
-      image: "assets/carstatus/ticketdetail.png",
-      caption: "Detailansicht eines Tickets mit offenen Arbeitsschritten",
-    ),
-    ProjectScreenshot(
-      image: "assets/carstatus/bearbeiten.png",
-      caption: "Kundendaten und Fahrzeug direkt im Ticket bearbeiten",
-    ),
-    ProjectScreenshot(
       image: "assets/carstatus/status.png",
-      caption: "Fahrzeugstatus von der Warteschlange bis zur Abholung setzen",
+      caption:
+          "Ticket bearbeiten: Kundendaten, Fahrzeug und Status vom Eingang bis zur Abholung",
     ),
     ProjectScreenshot(
       image: "assets/carstatus/kundenansicht.png",
