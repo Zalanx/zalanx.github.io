@@ -1,0 +1,56 @@
+name: Build & Deploy Flutter Web
+
+on:
+  push:
+    branches:
+      - build/web
+
+# Rechte, damit der Workflow auf GitHub Pages deployen darf
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Nur ein Deploy gleichzeitig
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Flutter einrichten
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.38.9
+          channel: stable
+          cache: true
+
+      - name: Pakete installieren
+        run: flutter pub get
+
+      - name: Web bauen
+        run: flutter build web --release --base-href /
+
+      - name: Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Build hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Auf GitHub Pages deployen
+        id: deployment
+        uses: actions/deploy-pages@v4
