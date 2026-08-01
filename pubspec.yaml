@@ -28,4 +28,5 @@ flutter:
 
   assets:
     - assets/aboutMeBackground.gif
+    - assets/carstatus/
   

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:zalan_portfolio/CarStatusPage.dart';
 import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
 import 'package:zalan_portfolio/Helper/Responsive.dart';
 
@@ -57,6 +58,9 @@ class Projects extends StatelessWidget {
               "Database"
             ],
             onGithubTap: () => _openUrl("https://github.com/Zalanx"),
+            onPreviewTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const CarStatusPage()),
+            ),
           ),
         ],
       ),
@@ -69,6 +73,7 @@ class ProjectCard extends StatelessWidget {
   final String description;
   final List<String> technologies;
   final VoidCallback onGithubTap;
+  final VoidCallback onPreviewTap;
 
   const ProjectCard({
     super.key,
@@ -76,6 +81,7 @@ class ProjectCard extends StatelessWidget {
     required this.description,
     required this.technologies,
     required this.onGithubTap,
+    required this.onPreviewTap,
   });
 
   @override
@@ -144,11 +150,18 @@ class ProjectCard extends StatelessWidget {
                 .toList(),
           ),
           const Gap(28),
-          Row(
+          Wrap(
+            spacing: 14,
+            runSpacing: 14,
             children: [
+              ProjectButton(
+                text: 'Preview',
+                onTap: onPreviewTap,
+              ),
               ProjectButton(
                 text: 'GitHub',
                 onTap: onGithubTap,
+                isOutlined: true,
               ),
             ],
           ),
