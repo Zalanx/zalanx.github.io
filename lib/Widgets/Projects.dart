@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Responsive.dart';
 
 class Projects extends StatelessWidget {
   const Projects({super.key});
@@ -16,15 +17,20 @@ class Projects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = Responsive.isMobile(context);
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 80),
+      padding: EdgeInsets.symmetric(
+        horizontal: isMobile ? 24 : 60,
+        vertical: isMobile ? 50 : 80,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Private Projekte",
             style: TextStyle(
-              fontSize: 36,
+              fontSize: isMobile ? 28 : 36,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -74,9 +80,11 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = Responsive.isMobile(context);
+
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.8,
-      padding: const EdgeInsets.all(30),
+      width: isMobile ? double.infinity : MediaQuery.sizeOf(context).width * 0.8,
+      padding: EdgeInsets.all(isMobile ? 20 : 30),
       decoration: BoxDecoration(
         color: const Color(0xFF141414),
         borderRadius: BorderRadius.circular(18),
@@ -90,17 +98,17 @@ class ProjectCard extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 28,
+            style: TextStyle(
+              fontSize: isMobile ? 22 : 28,
               fontWeight: FontWeight.bold,
-              color: Color(0xFFFF7A00),
+              color: const Color(0xFFFF7A00),
             ),
           ),
           const Gap(20),
           Text(
             description,
-            style: const TextStyle(
-              fontSize: 18,
+            style: TextStyle(
+              fontSize: isMobile ? 15 : 18,
               color: Colors.white70,
               height: 1.6,
             ),

@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Responsive.dart';
 
 class Skills extends StatelessWidget {
   const Skills({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = Responsive.isMobile(context);
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 80),
+      padding: EdgeInsets.symmetric(
+        horizontal: isMobile ? 24 : 60,
+        vertical: isMobile ? 50 : 80,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Align(
-            child: const Text(
+            child: Text(
               'Skills',
               style: TextStyle(
-                fontSize: 36,
+                fontSize: isMobile ? 28 : 36,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -67,8 +73,10 @@ class SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double available = MediaQuery.sizeOf(context).width - 48;
+
     return Container(
-      width: 280,
+      width: available < 280 ? available : 280,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: const Color(0xFF141414),
@@ -108,11 +116,13 @@ class SkillCard extends StatelessWidget {
                     color: Colors.white70,
                   ),
                   const Gap(10),
-                  Text(
-                    skill,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                  Expanded(
+                    child: Text(
+                      skill,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],

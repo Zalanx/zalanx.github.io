@@ -1,21 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:zalan_portfolio/Helper/Colors/MyColors.dart';
+import 'package:zalan_portfolio/Helper/Responsive.dart';
 
 class PersonalSection extends StatelessWidget {
   const PersonalSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = Responsive.isMobile(context);
+
+    const languagesBox = PersonalBox(
+      title: "Sprachen",
+      items: [
+        "Deutsch",
+        "Englisch",
+        "Ungarisch",
+      ],
+    );
+
+    const certificatesBox = PersonalBox(
+      title: "Zertifikate",
+      items: [
+        "Erasmus+ Auslandspraktikum (3 Wochen, Dublin)",
+      ],
+    );
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 80),
+      padding: EdgeInsets.symmetric(
+        horizontal: isMobile ? 24 : 60,
+        vertical: isMobile ? 50 : 80,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Persönliches",
             style: TextStyle(
-              fontSize: 36,
+              fontSize: isMobile ? 28 : 36,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -25,32 +47,25 @@ class PersonalSection extends StatelessWidget {
           width: 250,
           height: 2,
           color: Mycolors.primaryOrange,
-          ), 
-          const Gap(40),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Expanded(
-                child: PersonalBox(
-                  title: "Sprachen",
-                  items: [
-                    "Deutsch",
-                    "Englisch",
-                    "Ungarisch",
-                  ],
-                ),
-              ),
-              const Gap(40),
-              const Expanded(
-                child: PersonalBox(
-                  title: "Zertifikate",
-                  items: [
-                    "Erasmus+ Auslandspraktikum (3 Wochen, Dublin)",
-                  ],
-                ),
-              ),
-            ],
           ),
+          const Gap(40),
+          isMobile
+              ? const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    languagesBox,
+                    Gap(24),
+                    certificatesBox,
+                  ],
+                )
+              : const Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(child: languagesBox),
+                    Gap(40),
+                    Expanded(child: certificatesBox),
+                  ],
+                ),
         ],
       ),
     );

@@ -61,11 +61,15 @@ class Footer extends StatelessWidget {
 
           const Gap(20),
 
-          const Text(
-            '© 2026 Zalan Bader. Alle Rechte vorbehalten.',
-            style: TextStyle(
-              color: Colors.white54,
-              fontSize: 12,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: Text(
+              '© 2026 Zalan Bader. Alle Rechte vorbehalten.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white54,
+                fontSize: 12,
+              ),
             ),
           ),
         ],
