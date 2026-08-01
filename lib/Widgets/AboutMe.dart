@@ -48,7 +48,7 @@ class AboutMe extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Ich bin 19 Jahre alt und mache eine Ausbildung zum Fachinformatiker für Anwendungsentwicklung. In meiner Freizeit beschäftige ich mich hin und wieder mit der Softwareentwicklung.",
+                  "Ich bin ausgelernter Fachinformatiker für Anwendungsentwicklung und bringe praktische Erfahrung in der Backend- und Frontend-Entwicklung mit, unter anderem mit C#, ASP.NET, REST APIs und Flutter. In meiner Freizeit beschäftige ich mich hin und wieder mit der Softwareentwicklung.",
                   style: TextStyle(
                     fontSize: 28,
                     color: Colors.white,
